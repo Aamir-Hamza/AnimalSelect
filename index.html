@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Photo Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    select {
+      padding: 8px;
+      font-size: 16px;
+    }
+    .animal-photo {
+      margin-top: 20px;
+      width: 300px;
+      height: 300px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Select an Animal</h1>
+
+  <select id="animalSelect" onchange="displayAnimalPhoto()">
+    <option value="">-- Choose an Animal --</option>
+    <option value="cat">Cat</option>
+    <option value="dog">Dog</option>
+    <option value="elephant">Elephant</option>
+    <option value="lion">lion</option>
+  </select>
+
+  <img id="animalPhoto" class="animal-photo" src="" alt="Animal Photo">
+
+  <script>
+    function displayAnimalPhoto() {
+      const animalSelect = document.getElementById('animalSelect');
+      const animalPhoto = document.getElementById('animalPhoto');
+      const selectedAnimal = animalSelect.value;
+
+     
+      if (selectedAnimal === "cat") {
+        animalPhoto.src = "https://i.pinimg.com/564x/7d/79/c0/7d79c0aef6775278cb683c0ae6638689.jpg"; 
+      } else if (selectedAnimal === "dog") {
+        animalPhoto.src = "https://i.pinimg.com/236x/4d/85/19/4d85198065b3caf6fb267f0976d1f049.jpg"; 
+      } else if (selectedAnimal === "elephant") {
+        animalPhoto.src = "https://i.pinimg.com/236x/99/5b/44/995b446bd848f0431e785d9ec07dac81.jpg"; 
+      } else if(selectedAnimal === "lion"){
+        animalPhoto.src = "https://i.pinimg.com/236x/51/ce/6a/51ce6a3f68585bb4bf3963a09ea7c323.jpg"
+      }
+       else {
+        animalPhoto.src = "";
+      }
+
+     
+      animalPhoto.style.display = selectedAnimal ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
